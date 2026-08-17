@@ -1,0 +1,542 @@
+@import "tailwindcss";
+
+/* ============================================================================
+ * DESIGN SYSTEM — tokens
+ * Off-white editorial base, single electric accent, technical mono details.
+ * ==========================================================================*/
+
+@theme {
+  /* -- surface ------------------------------------------------------------ */
+  --color-paper: #f4f3ef;
+  --color-paper-raised: #faf9f6;
+  --color-paper-sunken: #ecebe5;
+  --color-veil: #ffffff;
+
+  /* -- ink ----------------------------------------------------------------
+     Every step from `ink` to `ink-40` clears 4.5:1 against `paper`, so any of
+     them is safe for body copy. `ink-20` and below are decorative only:
+     hairlines, dots and disabled states — never text. */
+  --color-ink: #0c0c0f; /* 17.6:1 */
+  --color-ink-80: #2b2b31; /* 12.4:1 */
+  --color-ink-60: #55555f; /*  6.6:1 */
+  --color-ink-40: #6a6a74; /*  4.8:1 — lightest text-safe step */
+  --color-ink-20: #b4b4bd; /* decorative */
+  --color-ink-10: #dedee2; /* decorative */
+
+  /* -- accent ------------------------------------------------------------- */
+  --color-signal: #2c3fe8; /*  6.3:1 */
+  --color-signal-soft: #6d7bf2;
+  --color-signal-wash: #e6e9fd;
+  --color-ember: #a03c10; /*  6.0:1 — error state */
+
+  /* -- line --------------------------------------------------------------- */
+  --color-hairline: rgba(12, 12, 15, 0.09);
+  --color-hairline-strong: rgba(12, 12, 15, 0.16);
+
+  /* -- type --------------------------------------------------------------- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-editorial: var(--font-editorial), ui-serif, Georgia, serif;
+
+  /* -- motion ------------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
+
+  /* -- radius --------------------------------------------------------------
+     Deliberately minimal. Overriding Tailwind's own scale here means every
+     `rounded-*` utility in the codebase collapses to these values, so the
+     whole project shares one hard-edged, technical geometry. Only true dots
+     and the portrait opt back out with `rounded-full`. */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 5px;
+  --radius-2xl: 6px;
+  --radius-3xl: 7px;
+  --radius-4xl: 8px;
+
+  /* -- shadow ------------------------------------------------------------- */
+  --shadow-lift: 0 1px 2px rgba(12, 12, 15, 0.04),
+    0 8px 24px -12px rgba(12, 12, 15, 0.12);
+  --shadow-float: 0 1px 1px rgba(12, 12, 15, 0.03),
+    0 12px 32px -14px rgba(12, 12, 15, 0.18),
+    0 32px 64px -32px rgba(12, 12, 15, 0.16);
+  --shadow-inset-hair: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================================================
+ * BASE
+ * ==========================================================================*/
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* Nav pill height + breathing room, for anchor jumps without JS. */
+    scroll-padding-top: 6.5rem;
+    background-color: var(--color-paper);
+  }
+
+  /* Lenis takes over smooth scrolling on capable devices. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  html.lenis {
+    scroll-behavior: auto;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Structural guard: `clip` (unlike `hidden`) does not create a scroll
+     container, so `position: sticky` keeps working while no amount of
+     decorative transform can ever produce a horizontal scrollbar. It must sit
+     on the root for the viewport to inherit it. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figure,
+  blockquote {
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Thin, neutral scrollbar so the chrome does not fight the design. */
+  @supports (scrollbar-width: thin) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-ink-20) transparent;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ink-20);
+    border: 3px solid var(--color-paper);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink-40);
+  }
+}
+
+/* ============================================================================
+ * TYPOGRAPHY UTILITIES — fluid scale
+ * ==========================================================================*/
+
+@layer components {
+  /* Sized so the three-line hero headline never re-wraps and the statement
+     plus both CTAs stay above the fold on a 900px-tall laptop. */
+  .type-display {
+    font-size: clamp(2.5rem, 7.3vw, 8.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.042em;
+    font-weight: 500;
+  }
+
+  .type-headline {
+    font-size: clamp(2rem, 5.4vw, 5rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    font-weight: 500;
+  }
+
+  .type-title {
+    font-size: clamp(1.5rem, 2.9vw, 2.75rem);
+    line-height: 1.06;
+    letter-spacing: -0.028em;
+    font-weight: 500;
+  }
+
+  .type-lead {
+    font-size: clamp(1.0625rem, 1.55vw, 1.4375rem);
+    line-height: 1.5;
+    letter-spacing: -0.014em;
+  }
+
+  .type-body {
+    font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
+    line-height: 1.65;
+    letter-spacing: -0.008em;
+  }
+
+  .type-label {
+    font-family: var(--font-mono);
+    font-size: clamp(0.625rem, 0.72vw, 0.6875rem);
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .type-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
+  .type-editorial {
+    font-family: var(--font-editorial);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.02em;
+  }
+
+  /* ------------------------------------------------------------ layout ---- */
+
+  .shell {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: clamp(1.125rem, 4.2vw, 5rem);
+    max-width: 108rem;
+  }
+
+  .shell-narrow {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: clamp(1.125rem, 4.2vw, 5rem);
+    max-width: 82rem;
+  }
+
+  /* Adjacent sections stack their padding, so the *gap* a reader sees is
+     roughly double this value — sized with that in mind. */
+  .section-pad {
+    padding-block: clamp(4rem, 8.5vh, 7rem);
+  }
+
+  /* ------------------------------------------------------------ surface --- */
+
+  .hairline {
+    border-color: var(--color-hairline);
+  }
+
+  .glass {
+    background: rgba(250, 249, 246, 0.72);
+    backdrop-filter: blur(18px) saturate(1.6);
+    -webkit-backdrop-filter: blur(18px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow-float);
+  }
+
+  .panel {
+    position: relative;
+    background: linear-gradient(
+      168deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(250, 249, 246, 0.72) 46%,
+      rgba(240, 239, 233, 0.55) 100%
+    );
+    border: 1px solid var(--color-hairline);
+    box-shadow: var(--shadow-lift), var(--shadow-inset-hair);
+  }
+
+  /* Fine technical grid — sits behind content, never above it. */
+  .tech-grid {
+    background-image: linear-gradient(
+        to right,
+        var(--color-hairline) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, var(--color-hairline) 1px, transparent 1px);
+    background-size: var(--grid-size, 84px) var(--grid-size, 84px);
+  }
+
+  .tech-dots {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      var(--color-hairline-strong) 1px,
+      transparent 0
+    );
+    background-size: 28px 28px;
+  }
+
+  /* Soft radial lighting used behind hero and contact.
+     The layer clips itself: an earlier version bled 10% past each edge, which
+     was enough to push the document's scrollWidth past the viewport at every
+     breakpoint. Decorative glow must never create a scrollbar. */
+  .aurora {
+    /* Horizontal only — clipping the vertical axis too would slice the glow
+       flat against the section's top edge and show as a hard seam. */
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .aurora::before {
+    content: "";
+    position: absolute;
+    inset: -30% 0 auto 0;
+    height: 130%;
+    background:
+      radial-gradient(
+        42% 38% at 18% 22%,
+        rgba(44, 63, 232, 0.13) 0%,
+        transparent 68%
+      ),
+      radial-gradient(
+        36% 34% at 82% 12%,
+        rgba(194, 87, 31, 0.09) 0%,
+        transparent 66%
+      ),
+      radial-gradient(
+        54% 46% at 62% 78%,
+        rgba(109, 123, 242, 0.11) 0%,
+        transparent 70%
+      );
+    filter: blur(28px);
+    pointer-events: none;
+  }
+
+  /* --------------------------------------------------------- interaction -- */
+
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.12em;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .mask-fade-r {
+    mask-image: linear-gradient(to right, #000 82%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, #000 82%, transparent 100%);
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================================================
+ * ANIMATION
+ * ==========================================================================*/
+
+/* Own rotation keyframes so SVG instruments never depend on a utility class
+   being present in the build output. */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes trace {
+  from {
+    stroke-dashoffset: var(--trace-length, 400);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sheen {
+  from {
+    transform: translate3d(-120%, 0, 0) skewX(-18deg);
+  }
+  to {
+    transform: translate3d(320%, 0, 0) skewX(-18deg);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-x var(--marquee-duration, 46s) linear infinite;
+}
+.animate-drift {
+  animation: drift var(--drift-duration, 9s) ease-in-out infinite;
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.6s var(--ease-out-expo) infinite;
+}
+
+/* ============================================================================
+ * REDUCED MOTION — every decorative animation collapses to a static state.
+ * ==========================================================================*/
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Coarse pointers get no cursor chrome and no hover-only affordances. */
+@media (hover: none), (pointer: coarse) {
+  .cursor-shell {
+    display: none !important;
+  }
+}
+
+/* ============================================================================
+ * CUSTOM CURSOR HAND-OFF
+ * The native cursor is hidden only once the custom one has actually mounted
+ * (`<html data-cursor-active>`), so a JS failure can never leave the visitor
+ * without a pointer. Text and form fields keep their native affordances.
+ * ==========================================================================*/
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-cursor-active] body,
+  html[data-cursor-active] a,
+  html[data-cursor-active] button {
+    cursor: none;
+  }
+
+  html[data-cursor-active] input,
+  html[data-cursor-active] textarea,
+  html[data-cursor-active] select,
+  html[data-cursor-active] [contenteditable] {
+    cursor: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-cursor-active] body,
+  html[data-cursor-active] a,
+  html[data-cursor-active] button {
+    cursor: auto;
+  }
+}
