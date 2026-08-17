@@ -1,0 +1,37 @@
+1:"$Sreact.fragment"
+2:I[13388,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"SmoothScroll"]
+3:I[27764,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Cursor"]
+4:I[91896,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Navigation"]
+5:I[77258,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Hero"]
+6:I[42264,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Metrics"]
+7:I[95116,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"About"]
+8:I[53113,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Expertise"]
+9:I[71726,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Stack"]
+a:I[50391,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Apps"]
+b:I[34506,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Experience"]
+c:I[648,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Process"]
+d:I[47710,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Contact"]
+e:I[81469,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js","/bhavin/_next/static/chunks/0urih7-e_kzyk.js"],"Footer"]
+f:I[97367,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+14:I[97367,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js"],"ViewportBoundary"]
+15:I[97367,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js"],"MetadataBoundary"]
+13:X
+0:{"buildId":"YzpHOOAff3hDAfQ2Lh9LC","data":[{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","div",null,{"aria-hidden":"true","className":"pointer-events-none fixed inset-0 z-[1]","style":{"background":"radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 55%), radial-gradient(100% 60% at 50% 100%, rgba(12,12,15,0.045) 0%, rgba(12,12,15,0) 60%)"}}],["$","div",null,{"aria-hidden":"true","className":"pointer-events-none fixed inset-0 z-[70] opacity-[0.035] mix-blend-multiply","style":{"backgroundImage":"url(\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22180%22%20height%3D%22180%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.82%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22180%22%20height%3D%22180%22%20filter%3D%22url(%23n)%22%20opacity%3D%220.5%22%2F%3E%3C%2Fsvg%3E\")","backgroundSize":"180px 180px"}}],["$","$L3",null,{}],["$","$L4",null,{}],["$","main",null,{"id":"main","className":"relative z-[2]","children":[["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{}],["$","$Lb",null,{}],["$","$Lc",null,{}],["$","$Ld",null,{}]]}],["$","$Le",null,{}]],[["$","script","script-0",{"src":"/bhavin/_next/static/chunks/0urih7-e_kzyk.js","async":true}]],["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]]}],"isPartial":"$@12","staleTime":"$13","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L14",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#f4f3ef","media":"(prefers-color-scheme: light)"}],["$","meta","3",{"name":"theme-color","content":"#f4f3ef","media":"(prefers-color-scheme: dark)"}]]}],["$","div",null,{"hidden":true,"children":["$","$L15",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Bhavin Solanki — Android Developer"}],["$","meta","1",{"name":"description","content":"Bhavin Solanki — Android developer with 4+ years building scalable mobile applications in Kotlin, Jetpack Compose, Firebase and AWS. 8 apps published on Google Play."}],["$","meta","2",{"name":"application-name","content":"Bhavin Solanki Portfolio"}],["$","link","3",{"rel":"author","href":"https://kishan3864.github.io/bhavin/"}],["$","meta","4",{"name":"author","content":"Bhavin Solanki"}],["$","meta","5",{"name":"keywords","content":"Bhavin Solanki,Android developer,mobile app developer,Kotlin developer,Jetpack Compose,Android developer India,Android developer Surat,Flutter developer,iOS developer,Google Play developer,Smart Codies"}],["$","meta","6",{"name":"creator","content":"Bhavin Solanki"}],["$","meta","7",{"name":"robots","content":"index, follow"}],["$","meta","8",{"name":"googlebot","content":"index, follow, max-image-preview:large"}],["$","meta","9",{"name":"category","content":"technology"}],["$","link","10",{"rel":"canonical","href":"https://kishan3864.github.io/bhavin/"}],["$","meta","11",{"property":"og:title","content":"Bhavin Solanki — Android Developer"}],["$","meta","12",{"property":"og:description","content":"Bhavin Solanki — Android developer with 4+ years building scalable mobile applications in Kotlin, Jetpack Compose, Firebase and AWS. 8 apps published on Google Play."}],["$","meta","13",{"property":"og:url","content":"https://kishan3864.github.io/bhavin/"}],["$","meta","14",{"property":"og:site_name","content":"Bhavin Solanki"}],["$","meta","15",{"property":"og:locale","content":"en_IN"}],["$","meta","16",{"property":"og:image","content":"https://kishan3864.github.io/bhavin/opengraph-image.png?opengraph-image.31vxuqh5wvnyd.png"}],["$","meta","17",{"property":"og:image:type","content":"image/png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:type","content":"website"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],"$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d"]}]}]}],"$L1e"]}],"isPartial":"$@1f","staleTime":"$13","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@20","rootVaryParams":null,"needsRuntimeRequest":"$@21"}
+22:I[27201,["/bhavin/_next/static/chunks/0h2qsuyze9ds1.js"],"IconMark"]
+11:null
+16:["$","meta","22",{"name":"twitter:title","content":"Bhavin Solanki — Android Developer"}]
+17:["$","meta","23",{"name":"twitter:description","content":"Bhavin Solanki — Android developer with 4+ years building scalable mobile applications in Kotlin, Jetpack Compose, Firebase and AWS. 8 apps published on Google Play."}]
+18:["$","meta","24",{"name":"twitter:image","content":"https://kishan3864.github.io/bhavin/opengraph-image.png?opengraph-image.31vxuqh5wvnyd.png"}]
+19:["$","meta","25",{"name":"twitter:image:type","content":"image/png"}]
+1a:["$","meta","26",{"name":"twitter:image:width","content":"1200"}]
+1b:["$","meta","27",{"name":"twitter:image:height","content":"630"}]
+1c:["$","link","28",{"rel":"icon","href":"/bhavin/icon.svg?icon.3o2hxgyn1fj04.svg","sizes":"any","type":"image/svg+xml"}]
+1d:["$","$L22","29",{}]
+1e:["$","meta",null,{"name":"next-size-adjust","content":""}]
+21:true
+13:300
+13:C
+20:0
+1f:"$undefined"
+12:"$undefined"

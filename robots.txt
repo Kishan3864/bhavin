@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://kishan3864.github.io/bhavin/sitemap.xml
